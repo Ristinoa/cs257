@@ -1,1 +1,1 @@
-print ("hello world")
+print ("Kenta =/= Zack, Michael")
