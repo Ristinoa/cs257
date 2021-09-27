@@ -50,7 +50,7 @@ class BooksDataSourceTester(unittest.TestCase):
         prev_book = years[0]
         for book in years:
             self.assertLessEqual(book.year(),2010)
-            self.assertGreaterEqual(book.year(),1945)
+            self.assertGreaterEqual(book.year(),1937)
             self.assertLessEqual(prev_book.year(),book.year())
             if(prev_book.year() == book.year()):
                 self.assertLessEqual(prev_book.title.lower(), book.title.lower())
@@ -72,7 +72,7 @@ class BooksDataSourceTester(unittest.TestCase):
         years = self.small_data_sources.books()
         prev_book = years[0]
         for book in years:
-            self.assertGreaterEqual(book.year(),1945)
+            self.assertGreaterEqual(book.year(),1939)
             self.assertLessEqual(prev_book.year(),book.year())
             if(prev_book.year() == book.year()):
                 self.assertLessEqual(prev_book.title.lower(), book.title.lower())
