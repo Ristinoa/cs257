@@ -46,7 +46,7 @@ class BooksDataSourceTester(unittest.TestCase):
             prev_book = book.lower()
 
     def test_between_year_sort(self):
-        years = self.small_data_sources.books(1945, 2010)
+        years = self.small_data_sources.books()
         prev_book = years[0]
         for book in years:
             self.assertLessEqual(book.year(),2010)
@@ -58,7 +58,7 @@ class BooksDataSourceTester(unittest.TestCase):
             else:
                 prev_book = book.lower()
 
-    def test_between_year_sort(self):
+    def test_year_sort(self):
         years = self.small_data_sources.books()
         prev_book = years[0]
         for book in years:
@@ -68,6 +68,29 @@ class BooksDataSourceTester(unittest.TestCase):
             else:
                 prev_book = book.lower()
 
+    def test_start_year_only_sort(self):
+        years = self.small_data_sources.books()
+        prev_book = years[0]
+        for book in years:
+            self.assertGreaterEqual(book.year(),1945)
+            self.assertLessEqual(prev_book.year(),book.year())
+            if(prev_book.year() == book.year()):
+                self.assertLessEqual(prev_book.title.lower(), book.title.lower())
+                prev_book = book.lower()
+            else:
+                prev_book = book.lower()
+
+    def test_end_year_only_sort(self):
+        years = self.small_data_sources.books()
+        prev_book = years[0]
+        for book in years:
+            self.assertLessEqual(book.year(),2010)
+            self.assertLessEqual(prev_book.year(),book.year())
+            if(prev_book.year() == book.year()):
+                self.assertLessEqual(prev_book.title.lower(), book.title.lower())
+                prev_book = book.lower()
+            else:
+                prev_book = book.lower()
 
 if __name__ == '__main__':
     unittest.main()
