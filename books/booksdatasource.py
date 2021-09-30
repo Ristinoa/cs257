@@ -49,7 +49,28 @@ class BooksDataSource:
             suitable instance variables for the BooksDataSource object containing
             a collection of Author objects and a collection of Book objects.
         '''
-        pass
+        self.books = []
+        self.authors = []
+        with open(books_csv_file_name) as csvfile:
+            reader = csv.reader(books_csv_file_name)
+            for line in reader:
+                this_books_authors = line[2].split(' and ')
+                for author in this_books_authors:
+                    curr_author = author.split()
+                    first_name = curr_author[0]
+                    if len(curr_author) > 3:
+                        first_name += " " + curr_author[1]
+                        surname = curr_author[2]
+                        years = curr_author[3].strip('(').strip(')').split('-')
+                        birth_year = int(years[0])
+                        death_year = None
+                        if len(years) > 1:
+                            death_year = int(years[1])
+                    new_author = Author(surname, first_name, birth_year, death_year)
+                    self.authors.append(new_author)
+                    this_books_authors.append(new_author)
+                self.books.append(Book(line[0], int(line[1]), this_books_authors) 
+                sorted(self.books, key=lambda book: book.title)
 
     def authors(self, search_text=None):
         ''' Returns a list of all the Author objects in this data source whose names contain
@@ -57,7 +78,11 @@ class BooksDataSource:
             returns all of the Author objects. In either case, the returned list is sorted
             by surname, breaking ties using given name (e.g. Ann Brontë comes before Charlotte Brontë).
         '''
-        return []
+        authors = []
+        for author in self.Authors:
+            if search_text in author.surname or search_text in author.given_name:
+                authors.append(author)
+                return sorted(authors, key=lambda author: author.surname)
 
     def books(self, search_text=None, sort_by='title'):
         ''' Returns a list of all the Book objects in this data source whose
@@ -71,7 +96,11 @@ class BooksDataSource:
                 default -- same as 'title' (that is, if sort_by is anything other than 'year'
                             or 'title', just do the same thing you would do for 'title')
         '''
-        return []
+        books = []
+        for book in self.books:
+            if search_text in book.title: 
+                books.append(book)
+        return sorted(books, key=lambda book: book.sort_by)
 
     def books_between_years(self, start_year=None, end_year=None):
         ''' Returns a list of all the Book objects in this data source whose publication
@@ -84,5 +113,13 @@ class BooksDataSource:
             during start_year should be included. If both are None, then all books
             should be included.
         '''
-        return []
+        books = []
+        if start_year is None:
+            start_year = 0
+        if end_year is None:
+            end_year = 10000
+        for book in self.books:
+            if book.publication_year <= end_year and book.publication_year >= start_year:
+                books.append(book)
+        return sorted(books, key=lambda book: book.publication_year)
 
