@@ -49,28 +49,33 @@ class BooksDataSource:
             suitable instance variables for the BooksDataSource object containing
             a collection of Author objects and a collection of Book objects.
         '''
-        self.books = []
-        self.authors = []
+        temp_Books = []
+        self.Authors = []
         with open(books_csv_file_name) as csvfile:
-            reader = csv.reader(books_csv_file_name)
+            reader = csv.reader(csvfile)
+            temp_books = []
             for line in reader:
                 this_books_authors = line[2].split(' and ')
+                temp_authors = []
                 for author in this_books_authors:
                     curr_author = author.split()
                     first_name = curr_author[0]
                     if len(curr_author) > 3:
                         first_name += " " + curr_author[1]
                         surname = curr_author[2]
-                        years = curr_author[3].strip('(').strip(')').split('-')
-                        birth_year = int(years[0])
-                        death_year = None
-                        if len(years) > 1:
-                            death_year = int(years[1])
+                        years = curr_author[3].strip().strip('(').strip(')').split('-')
+                    else:
+                        surname = curr_author[1]
+                        years = curr_author[2].strip('(').strip(')').split('-')
+                    birth_year = int(years[0])
+                    death_year = None
+                    if years[1] != '':
+                        death_year = int(years[1])
                     new_author = Author(surname, first_name, birth_year, death_year)
-                    self.authors.append(new_author)
-                    this_books_authors.append(new_author)
-                self.books.append(Book(line[0], int(line[1]), this_books_authors) 
-                sorted(self.books, key=lambda book: book.title)
+                    self.Authors.append(new_author)
+                    temp_authors.append(new_author)
+                temp_books.append(Book(line[0], int(line[1]), temp_authors))
+        self.Books = sorted(temp_books, key=lambda book: book.title)
 
     def authors(self, search_text=None):
         ''' Returns a list of all the Author objects in this data source whose names contain
@@ -97,10 +102,12 @@ class BooksDataSource:
                             or 'title', just do the same thing you would do for 'title')
         '''
         books = []
-        for book in self.books:
-            if search_text in book.title: 
+        for book in self.Books:
+            if search_text is not None and search_text in book.title: 
                 books.append(book)
-        return sorted(books, key=lambda book: book.sort_by)
+        if sort_by == 'year':
+            return sorted(books, key=lambda book: book.publication_year)
+        return sorted(books, key=lambda book: book.title)
 
     def books_between_years(self, start_year=None, end_year=None):
         ''' Returns a list of all the Book objects in this data source whose publication
