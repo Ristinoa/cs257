@@ -89,7 +89,7 @@ class BooksDataSource:
         for book in self.Books:
             if search_text is not None and search_text in book.title: 
                 books.append(book)
-            elif search_text is None:
+            elif search_text is None: # apppend everything if no search term is given
                 books.append(book)
         if sort_by == 'year':
             return sorted(books, key=lambda book: book.publication_year)
@@ -117,12 +117,12 @@ class BooksDataSource:
         return sorted(books, key=lambda book: book.publication_year)
 
     def parse_authors(self, line):
-        author_raw_data = line[2].split(' and ')
+        author_raw_data = line[2].split(' and ') # separate multiple authors
         authors_parsed = []
         for author in author_raw_data:
-            curr_author = author.split()
-            if len(curr_author) > 3:
-                first_name = curr_author[0] + ' ' + curr_author[1]
+            curr_author = author.split() # [first_name, surname, '(birth_year-death_year)']
+            if len(curr_author) > 3: # if the author has more than one given name
+                first_name = curr_author[0] + ' ' + curr_author[1] # concatenate given names
                 surname = curr_author[2]
                 years = curr_author[3].strip('(').strip(')').split('-')
             else:
@@ -130,7 +130,7 @@ class BooksDataSource:
                 surname = curr_author[1]
                 years = curr_author[2].strip('(').strip(')').split('-')
             birth_year = int(years[0])
-            death_year = None if years[1] == '' else int(years[1])
+            death_year = None if years[1] == '' else int(years[1]) 
             authors_parsed.append(Author(surname, first_name, birth_year, death_year))
         return authors_parsed
 
@@ -138,8 +138,8 @@ class BooksDataSource:
         for author in author_list:
             author_in_list = False
             for i in range(len(self.Authors)):
-                if author == self.Authors[i]:
-                    author_in_list = True
-                    break
+                if author == self.Authors[i]: # if trying to add an author already in the list...
+                    author_in_list = True     #
+                    break                     # ...don't
             if not author_in_list:
                 self.Authors.append(author)
