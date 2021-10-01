@@ -49,33 +49,16 @@ class BooksDataSource:
             suitable instance variables for the BooksDataSource object containing
             a collection of Author objects and a collection of Book objects.
         '''
-        temp_Books = []
         self.Authors = []
         with open(books_csv_file_name) as csvfile:
             reader = csv.reader(csvfile)
             temp_books = []
             for line in reader:
-                this_books_authors = line[2].split(' and ')
-                temp_authors = []
-                for author in this_books_authors:
-                    curr_author = author.split()
-                    first_name = curr_author[0]
-                    if len(curr_author) > 3:
-                        first_name += " " + curr_author[1]
-                        surname = curr_author[2]
-                        years = curr_author[3].strip().strip('(').strip(')').split('-')
-                    else:
-                        surname = curr_author[1]
-                        years = curr_author[2].strip('(').strip(')').split('-')
-                    birth_year = int(years[0])
-                    death_year = None
-                    if years[1] != '':
-                        death_year = int(years[1])
-                    new_author = Author(surname, first_name, birth_year, death_year)
-                    self.Authors.append(new_author)
-                    temp_authors.append(new_author)
+                temp_authors = self.parse_authors(line)
                 temp_books.append(Book(line[0], int(line[1]), temp_authors))
+                self.add_authors(temp_authors)
         self.Books = sorted(temp_books, key=lambda book: book.title)
+        self.Authors = sorted(self.Authors, key=lambda author: (author.surname, author.given_name))
 
     def authors(self, search_text=None):
         ''' Returns a list of all the Author objects in this data source whose names contain
@@ -84,10 +67,11 @@ class BooksDataSource:
             by surname, breaking ties using given name (e.g. Ann Brontë comes before Charlotte Brontë).
         '''
         authors = []
+        search_text = '' if search_text is None else search_text.lower()
         for author in self.Authors:
-            if search_text in author.surname or search_text in author.given_name:
+            if search_text in author.surname.lower() or search_text in author.given_name.lower():
                 authors.append(author)
-                return sorted(authors, key=lambda author: author.surname)
+        return sorted(authors, key=lambda author: (author.surname, author.given_name))
 
     def books(self, search_text=None, sort_by='title'):
         ''' Returns a list of all the Book objects in this data source whose
@@ -104,6 +88,8 @@ class BooksDataSource:
         books = []
         for book in self.Books:
             if search_text is not None and search_text in book.title: 
+                books.append(book)
+            elif search_text is None:
                 books.append(book)
         if sort_by == 'year':
             return sorted(books, key=lambda book: book.publication_year)
@@ -125,8 +111,35 @@ class BooksDataSource:
             start_year = 0
         if end_year is None:
             end_year = 10000
-        for book in self.books:
+        for book in self.Books:
             if book.publication_year <= end_year and book.publication_year >= start_year:
                 books.append(book)
         return sorted(books, key=lambda book: book.publication_year)
 
+    def parse_authors(self, line):
+        author_raw_data = line[2].split(' and ')
+        authors_parsed = []
+        for author in author_raw_data:
+            curr_author = author.split()
+            if len(curr_author) > 3:
+                first_name = curr_author[0] + ' ' + curr_author[1]
+                surname = curr_author[2]
+                years = curr_author[3].strip('(').strip(')').split('-')
+            else:
+                first_name = curr_author[0]
+                surname = curr_author[1]
+                years = curr_author[2].strip('(').strip(')').split('-')
+            birth_year = int(years[0])
+            death_year = None if years[1] == '' else int(years[1])
+            authors_parsed.append(Author(surname, first_name, birth_year, death_year))
+        return authors_parsed
+
+    def add_authors(self, author_list):
+        for author in author_list:
+            author_in_list = False
+            for i in range(len(self.Authors)):
+                if author == self.Authors[i]:
+                    author_in_list = True
+                    break
+            if not author_in_list:
+                self.Authors.append(author)
