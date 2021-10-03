@@ -87,7 +87,7 @@ class BooksDataSource:
         '''
         books = []
         for book in self.Books:
-            if search_text is not None and search_text in book.title: 
+            if search_text is not None and search_text in book.title.lower(): 
                 books.append(book)
             elif search_text is None: # apppend everything if no search term is given
                 books.append(book)
