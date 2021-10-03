@@ -1,3 +1,5 @@
+# Authors: AJ Ristino and Carl Tankersley
+
 import booksdatasource as bds
 import argparse as ap
 
