@@ -116,7 +116,16 @@ class BooksDataSource:
                 books.append(book)
         return sorted(books, key=lambda book: book.publication_year)
 
+    def books_by_author(self, author):
+        '''Returns a list of all of the books in the data source written by a given author'''
+        books_list = []
+        for book in self.Books:
+            if author in book.authors:
+                books_list.append(book)
+        return books_list
+
     def parse_authors(self, line):
+        '''Parses a list of author fields from the CSV input file and returns a list of Author objects'''
         author_raw_data = line[2].split(' and ') # separate multiple authors
         authors_parsed = []
         for author in author_raw_data:
@@ -135,6 +144,8 @@ class BooksDataSource:
         return authors_parsed
 
     def add_authors(self, author_list):
+        '''Checks to see if each Author object in the list is in the data source and adds it to the 
+           data source if the author is not already there'''
         for author in author_list:
             author_in_list = False
             for i in range(len(self.Authors)):
