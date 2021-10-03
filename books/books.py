@@ -33,10 +33,12 @@ def main():
             output += format_books_for_author(data_source.books_by_author(author))
         print_strings(output)
     elif args.year is not None:
-        if len(args.year) != 1 and len(args.year) != 2:
-            print("Please enter 1 or 2 years")
+        if len(args.year) > 2:
+            print("Please enter 0-2 years")
             exit()
-        if len(args.year) == 1:
+        if len(args.year) == 0:
+            books_list = data_source.books_between_years()
+        elif len(args.year) == 1:
             books_list = data_source.books_between_years(start_year=args.year[0])
         else:
             books_list = data_source.books_between_years(args.year[0], args.year[1])
