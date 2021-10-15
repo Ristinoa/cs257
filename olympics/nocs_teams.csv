@@ -1,0 +1,230 @@
+1,China,CHN
+3,Denmark,DEN
+5,Netherlands,NED
+6,United States,USA
+9,Finland,FIN
+20,Norway,NOR
+22,Romania,ROU
+31,Estonia,EST
+34,France,FRA
+48,Morocco,MAR
+51,Spain,ESP
+53,Egypt,EGY
+54,Iran,IRI
+57,Bulgaria,BUL
+62,Italy,ITA
+64,Chad,CHA
+65,Azerbaijan,AZE
+66,Sudan,SUD
+67,Russia,RUS
+68,Argentina,ARG
+70,Cuba,CUB
+72,Belarus,BLR
+75,Greece,GRE
+76,Cameroon,CMR
+78,Turkey,TUR
+79,Chile,CHI
+82,Mexico,MEX
+87,Soviet Union,URS
+96,Nicaragua,NCA
+99,Hungary,HUN
+101,Nigeria,NGR
+105,Algeria,ALG
+109,Kuwait,KUW
+110,Bahrain,BRN
+111,Pakistan,PAK
+112,Iraq,IRQ
+116,United Arab Republic,UAR
+117,Lebanon,LIB
+122,Qatar,QAT
+125,Malaysia,MAS
+133,Germany,GER
+140,Canada,CAN
+141,Ireland,IRL
+143,Australia,AUS
+144,South Africa,RSA
+160,Eritrea,ERI
+166,Tanzania,TAN
+169,Jordan,JOR
+196,Tunisia,TUN
+204,Libya,LBA
+251,Belgium,BEL
+254,Djibouti,DJI
+258,Palestine,PLE
+263,Comoros,COM
+272,Kazakhstan,KAZ
+273,Brunei,BRU
+281,India,IND
+283,Saudi Arabia,KSA
+284,Syria,SYR
+289,Maldives,MDV
+295,Ethiopia,ETH
+306,United Arab Emirates,UAE
+307,North Yemen,YAR
+310,Indonesia,INA
+317,Philippines,PHI
+332,Singapore,SGP
+337,Uzbekistan,UZB
+353,Kyrgyzstan,KGZ
+355,Tajikistan,TJK
+359,Unified Team,EUN
+362,Japan,JPN
+378,Congo (Brazzaville),CGO
+385,Switzerland,SUI
+386,Brazil,BRA
+393,West Germany,FRG
+394,East Germany,GDR
+398,Monaco,MON
+403,Israel,ISR
+406,Uruguay,URU
+414,Sweden,SWE
+422,United States Virgin Islands,ISV
+429,Sri Lanka,SRI
+431,Armenia,ARM
+432,Cote d'Ivoire,CIV
+442,Kenya,KEN
+447,Benin,BEN
+452,Ukraine,UKR
+453,Great Britain,GBR
+458,Ghana,GHA
+461,Somalia,SOM
+462,Latvia,LAT
+487,Niger,NIG
+500,Mali,MLI
+502,Afghanistan,AFG
+513,Poland,POL
+517,Costa Rica,CRC
+518,Panama,PAN
+532,Georgia,GEO
+538,Slovenia,SLO
+549,Croatia,CRO
+551,Guyana,GUY
+553,New Zealand,NZL
+555,Portugal,POR
+567,Paraguay,PAR
+568,Angola,ANG
+571,Venezuela,VEN
+574,Colombia,COL
+590,Bangladesh,BAN
+605,Peru,PER
+645,El Salvador,ESA
+646,Puerto Rico,PUR
+672,Uganda,UGA
+710,Honduras,HON
+717,Ecuador,ECU
+743,Turkmenistan,TKM
+761,Mauritius,MRI
+765,Seychelles,SEY
+766,Czechoslovakia,TCH
+774,Luxembourg,LUX
+782,Mauritania,MTN
+792,Czech Republic,CZE
+804,Saint Kitts and Nevis,SKN
+815,Trinidad and Tobago,TTO
+819,Dominican Republic,DOM
+822,Saint Vincent and the Grenadines,VIN
+854,Jamaica,JAM
+888,Liberia,LBR
+903,Suriname,SUR
+939,Nepal,NEP
+954,Mongolia,MGL
+968,Austria,AUT
+991,Palau,PLW
+1000,Lithuania,LTU
+1014,Togo,TOG
+1018,Namibia,NAM
+1021,Netherlands Antilles,AHO
+1038,Iceland,ISL
+1039,American Samoa,ASA
+1087,Samoa,SAM
+1112,Rwanda,RWA
+1118,Dominica,DMA
+1140,Haiti,HAI
+1166,Malta,MLT
+1210,Cyprus,CYP
+1230,Guinea,GUI
+1258,Belize,BIZ
+1420,South Yemen,YMD
+1422,South Korea,KOR
+1494,Thailand,THA
+1535,Bermuda,BER
+1537,Australasia,ANZ
+1555,Serbia and Montenegro,SCG
+1568,Sierra Leone,SLE
+1669,Papua New Guinea,PNG
+1771,Yemen,YEM
+1773,Individual Olympic Athletes,IOA
+1778,Oman,OMA
+2226,Fiji,FIJ
+2276,Vanuatu,VAN
+2365,Moldova,MDA
+2383,Yugoslavia,YUG
+2393,Bahamas,BAH
+2421,Guatemala,GUA
+2516,Serbia,SRB
+2571,British Virgin Islands,IVB
+2609,Mozambique,MOZ
+2672,Central African Republic,CAF
+2683,Madagascar,MAD
+2698,Malaya,MAL
+2726,Bosnia and Herzegovina,BIH
+2729,Guam,GUM
+2803,Cayman Islands,CAY
+2814,Slovakia,SVK
+2888,Barbados,BAR
+2967,Guinea Bissau,GBS
+3302,Timor Leste,TLS
+3341,Congo (Kinshasa),COD
+3352,Gabon,GAB
+3428,San Marino,SMR
+3482,Laos,LAO
+3512,Botswana,BOT
+3515,Refugee Olympic Athletes,ROT
+3576,GyoshuII,CAM
+3578,North Korea,PRK
+3627,Solomon Islands,SOL
+4032,Senegal,SEN
+4038,Cape Verde,CPV
+4259,Crete,CRT
+4475,Equatorial Guinea,GEQ
+4492,Bolivia,BOL
+4500,Saar,SAA
+4594,Andorra,AND
+4738,Antigua and Barbuda,ANT
+5529,Zimbabwe,ZIM
+5534,Grenada,GRN
+5885,Hong Kong,HKG
+5947,Saint Lucia,LCA
+5965,Federated States of Micronesia,FSM
+5992,Myanmar,MYA
+6237,Malawi,MAW
+6435,Zambia,ZAM
+6705,Rhodesia,RHO
+6850,Chinese Taipei-1,TPE
+6858,Sao Tome and Principe,STP
+7114,Macedonia,MKD
+7239,Bohemia,BOH
+7449,Tonga,TGA
+7592,Liechtenstein,LIE
+7874,Montenegro,MNE
+8475,Gambia,GAM
+9285,Cook Islands,COK
+9365,Albania,ALB
+10183,Circus,WIF
+11208,Swaziland,SWZ
+11297,Burkina Faso,BUR
+11570,North Borneo,NBO
+11633,Burundi,BDI
+11818,Aruba,ARU
+14837,Nauru,NRU
+16251,South Vietnam,VNM
+17997,Vietnam,VIE
+20608,Bhutan,BHU
+23772,Marshall Islands,MHL
+25568,Kiribati,KIR
+31292,Unknown,UNK
+33094,Tuvalu,TUV
+36547,Newfoundland,NFL
+40647,Kosovo,KOS
+46491,South Sudan,SSD
+48896,Lesotho,LES
