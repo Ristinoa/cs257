@@ -14,7 +14,7 @@ with open("athlete_events.csv") as csv_file:
             targets_found.add(line[1])#Add the target quality into the 'found' list . . .
 
 # and then paste in to the new file
-with open("athlete_events.csv", 'w') as new_file:
+with open("athletes.csv", 'w') as new_file:
     writer = csv.writer(new_file)
     for row in desired_rows:
         writer.writerow(row)

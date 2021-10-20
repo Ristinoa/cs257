@@ -37,18 +37,10 @@ SELECT * FROM noc ORDER BY team_name ASC;
 
 LIST OF ALL ALL ATHLETES FROM KENYA:
 
-So, I made a mistake and can't go back to fix it because I
-overwrote my original athlete_events.csv file by accident.
-Lesson learned. Anyways here's the bad way:
-
-SELECT * FROM athletes WHERE noc_name = KEN;
-
-Here's the correct way:
-
-SELECT athletes.athlete_name, noc.team_name
+SELECT athletes.athlete_name, noc.noc_name
 FROM noc, athletes, connector
 WHERE connector.noc_id = noc.noc_id
 AND connector.athlete_id = athletes.athlete_id
-AND noc.team_name = 'KEN';
+AND noc.noc_name  = 'KEN';
 
 LIST OF MEDALS WON BY GREG LOUGANIS:
