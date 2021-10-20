@@ -1,3 +1,10 @@
+olympics.schema.sql
+
+Author: A.J. Ristino
+
+A .txt file containing all of the SQL queries
+for the 10/15 lab
+
 # CREATE TABLE STATEMENTS #
 
 CREATE TABLE athletes(
@@ -44,3 +51,12 @@ AND connector.athlete_id = athletes.athlete_id
 AND noc.noc_name  = 'KEN';
 
 LIST OF MEDALS WON BY GREG LOUGANIS:
+
+SELECT athlete_name, medal_type, year
+FROM athletes, medal, game, connector
+WHERE connector.athlete_id = athletes.athlete_id
+AND connector.medal_id = medal.medal_id
+AND connector.game_id = game.game_id
+AND medal.medal_id <> 1
+AND athletes.athlete_name = 'Gregory Efthimios "Greg" Louganis'
+ORDER BY game.year;
