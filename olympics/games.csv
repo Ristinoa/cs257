@@ -1,51 +1,52 @@
-1,1992 Summer,1992,Summer,Barcelona
-2,2012 Summer,2012,Summer,London
-3,1920 Summer,1920,Summer,Antwerpen
-4,1900 Summer,1900,Summer,Paris
-5,1988 Winter,1988,Winter,Calgary
-6,1992 Winter,1992,Winter,Albertville
-7,1994 Winter,1994,Winter,Lillehammer
-8,1932 Summer,1932,Summer,Los Angeles
-9,2002 Winter,2002,Winter,Salt Lake City
-10,1952 Summer,1952,Summer,Helsinki
-11,1980 Winter,1980,Winter,Lake Placid
-12,2000 Summer,2000,Summer,Sydney
-13,1996 Summer,1996,Summer,Atlanta
-15,1912 Summer,1912,Summer,Stockholm
-16,2014 Winter,2014,Winter,Sochi
-17,1948 Summer,1948,Summer,London
-20,1998 Winter,1998,Winter,Nagano
-21,2008 Summer,2008,Summer,Beijing
-22,2016 Summer,2016,Summer,Rio de Janeiro
-23,2004 Summer,2004,Summer,Athina
-24,1960 Winter,1960,Winter,Squaw Valley
-26,1984 Winter,1984,Winter,Sarajevo
-27,1984 Summer,1984,Summer,Los Angeles
-28,1968 Summer,1968,Summer,Mexico City
-29,1988 Summer,1988,Summer,Seoul
-31,1936 Summer,1936,Summer,Berlin
-40,1952 Winter,1952,Winter,Oslo
-46,1956 Summer,1956,Summer,Melbourne
-47,1924 Summer,1924,Summer,Paris
-52,1976 Summer,1976,Summer,Montreal
-59,1960 Summer,1960,Summer,Roma
-66,1972 Summer,1972,Summer,Munich
-85,1980 Summer,1980,Summer,Moskva
-87,1964 Summer,1964,Summer,Tokyo
-102,1928 Summer,1928,Summer,Amsterdam
-121,2010 Winter,2010,Winter,Vancouver
-137,1964 Winter,1964,Winter,Innsbruck
-139,1906 Summer,1906,Summer,Athina
-363,1972 Winter,1972,Winter,Sapporo
-391,1924 Winter,1924,Winter,Chamonix
-393,1976 Winter,1976,Winter,Innsbruck
-404,1904 Summer,1904,Summer,St. Louis
-452,2006 Winter,2006,Winter,Torino
-529,1928 Winter,1928,Winter,Sankt Moritz
-635,1908 Summer,1908,Summer,London
-665,1948 Winter,1948,Winter,Sankt Moritz
-680,1968 Winter,1968,Winter,Grenoble
-746,1932 Winter,1932,Winter,Lake Placid
-1127,1956 Winter,1956,Winter,Cortina d'Ampezzo
-1469,1936 Winter,1936,Winter,Garmisch-Partenkirchen
-1724,1896 Summer,1896,Summer,Athina
+ID,Games,Year,Season
+1,1992 Summer,1992,Summer
+2,2012 Summer,2012,Summer
+3,1920 Summer,1920,Summer
+4,1900 Summer,1900,Summer
+5,1988 Winter,1988,Winter
+6,1992 Winter,1992,Winter
+7,1994 Winter,1994,Winter
+8,1932 Summer,1932,Summer
+9,2002 Winter,2002,Winter
+10,1952 Summer,1952,Summer
+11,1980 Winter,1980,Winter
+12,2000 Summer,2000,Summer
+13,1996 Summer,1996,Summer
+15,1912 Summer,1912,Summer
+16,2014 Winter,2014,Winter
+17,1948 Summer,1948,Summer
+20,1998 Winter,1998,Winter
+21,2008 Summer,2008,Summer
+22,2016 Summer,2016,Summer
+23,2004 Summer,2004,Summer
+24,1960 Winter,1960,Winter
+26,1984 Winter,1984,Winter
+27,1984 Summer,1984,Summer
+28,1968 Summer,1968,Summer
+29,1988 Summer,1988,Summer
+31,1936 Summer,1936,Summer
+40,1952 Winter,1952,Winter
+46,1956 Summer,1956,Summer
+47,1924 Summer,1924,Summer
+52,1976 Summer,1976,Summer
+59,1960 Summer,1960,Summer
+66,1972 Summer,1972,Summer
+85,1980 Summer,1980,Summer
+87,1964 Summer,1964,Summer
+102,1928 Summer,1928,Summer
+121,2010 Winter,2010,Winter
+137,1964 Winter,1964,Winter
+139,1906 Summer,1906,Summer
+363,1972 Winter,1972,Winter
+391,1924 Winter,1924,Winter
+393,1976 Winter,1976,Winter
+404,1904 Summer,1904,Summer
+452,2006 Winter,2006,Winter
+529,1928 Winter,1928,Winter
+635,1908 Summer,1908,Summer
+665,1948 Winter,1948,Winter
+680,1968 Winter,1968,Winter
+746,1932 Winter,1932,Winter
+1127,1956 Winter,1956,Winter
+1469,1936 Winter,1936,Winter
+1724,1896 Summer,1896,Summer

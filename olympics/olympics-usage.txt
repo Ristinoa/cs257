@@ -1,0 +1,40 @@
+NAME
+    olympics.py
+
+SYNOPSIS
+
+    python3 olympics.py [OPTION]...
+
+    python3 olympics.py -(a/g) "STRING"
+
+DESCRIPTION
+
+    Queries the previously established olympics database and prints the queried info.
+
+    -a, --athletes-from-NOC "NOC"
+        Prints a table of athletes from a user specified string (case-insensitive), if no NOC names correspond
+        to the user-entered string, prints an empty table.
+
+    -m, --medals-from-NOCs
+        Prints a table containing of all NOCs and the total number of gold medals each NOC has won.
+
+    -g, --gold-medalists "YEAR" 
+        Prints a table containing all gold medalists from a given year, if the entered year does not 
+        correspond to a valid year, prints an empty table.
+    
+    -h, --help
+        Displays this usage statement 
+
+APPENDIX
+
+    It is highly recommended by the designer of this program that you direct the results of each query
+    into a separate file like so:
+
+    python3 olympics.py -m "KEN" > kenya_athletes.txt
+
+    the stdout results of this program can be quite lengthy and are not navigation friendly. 
+
+AUTHORS
+
+   A.J. Ristino
+   Special thanks professor Jeff Ondich   
