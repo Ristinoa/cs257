@@ -18,10 +18,9 @@ DESCRIPTION
     -m, --medals-from-NOCs
         Prints a table containing of all NOCs and the total number of gold medals each NOC has won.
 
-    -g, --gold-medalists "YEAR" 
-        Prints a table containing all gold medalists from a given year, if the entered year does not 
-        correspond to a valid year, prints an empty table.
-    
+    -s, --silver-medals-from-NOCs 
+        Prints a table containing of all NOCs and the total number of silver medals each NOC has won.   
+ 
     -h, --help
         Displays this usage statement 
 
