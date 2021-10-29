@@ -88,8 +88,8 @@ def get_nocs():
         nocs.append(noc_dict)
     return json.dumps(nocs)
 
-@f_app.route('/medalists?[noc=noc_abbreviation]')
-def get_medalists():
+@f_app.route('/medalists/<noc>')
+def get_medalists(noc):
 
     # /medalists follows the same setup + flow as the previous two endpoints
     # LARGE HICCUP: My database is perfectly functional except for the connection between the 'game'
@@ -109,7 +109,7 @@ def get_medalists():
                AND connector.noc_id = noc.noc_id
                AND medal.medal_id <> 1'''
     try:
-        olympics_app.cursor(query)
+        olympics_app.cursor.execute(query, (noc))
     except Exception as e:
         print(e)
         exit()
