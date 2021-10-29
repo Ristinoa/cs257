@@ -1,0 +1,17 @@
+NAME
+    api-test.py
+
+SYNOPSIS
+
+    It has one input and I don't need to explain it.
+
+Description
+
+    Queries a COVID-19 database and returns the daily number of deaths.
+
+    -s --state-deaths (I think?)
+
+
+Authors
+
+    A.J. Ristino

@@ -34,8 +34,8 @@ with open("games.csv") as games:
     games_dict = {}
     file = csv.reader(games)
     for line in file:
-        if line[1] not in games_dict.keys():
-            games_dict[line[0]] = line[1]
+        if line[0] not in games_dict.keys():
+            games_dict[line[1]] = line[0]
 
 with open("athlete_events.csv") as source, open("connector.csv", 'w') as connector:
     writer = csv.writer(connector)

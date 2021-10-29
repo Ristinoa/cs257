@@ -8,9 +8,9 @@ for the 10/15 lab
 # CREATE TABLE STATEMENTS #
 
 CREATE TABLE athletes(
-id SERIAL,
 athlete_id integer,
-athlete_name text);
+athlete_name text,
+sex text);
 
 CREATE TABLE noc(
 noc_id integer,
@@ -23,7 +23,10 @@ event text);
 
 CREATE TABLE game(
 game_id integer,
-game text);
+game text,
+year integer,
+season text,
+city text);
 
 CREATE TABLE medal(
 medal_id integer,

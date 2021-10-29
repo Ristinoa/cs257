@@ -1,0 +1,21 @@
+Class notes: API
+
+What the hell is a stub function? What support functions do I need to write for it to work properly?
+
+What the hell is going on with flask?
+
+port (int), host (string)
+app.run(host=arguments.host, port=arguments.port, debug=True)
+
+^^ python method from an app instance:
+
+hey flask app, listen for queries coming to you (@currenthost) at the specified host
+
+A broswer is a client; a program able to issue requests over a network
+
+A: can I talk to port 5000?
+
+R: 200 (yes)
+
+A: okay, here's what I wanna ask: 
+
