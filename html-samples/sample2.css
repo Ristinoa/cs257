@@ -1,0 +1,36 @@
+/*
+   sample2.css
+   2 May 2018
+   The very beginnings of CSS
+*/
+
+p {
+    color: blue;
+}
+
+h1 {
+    font-size: 400%;
+}
+
+ol {
+    /* See https://www.w3schools.com/css/css_list.asp */
+    list-style-type: lower-alpha;
+}
+
+.alarming {
+    /* equivalent to color: red */
+    color: #FF0000;
+}
+
+.big {
+    font-size: 36pt;
+}
+
+/* 
+    This is the comment format for css. It works okay.
+    What I theorize this css does is make all paragraphs 
+    blue, all settings a text size of 400% larger than the
+    standard, sets the font-size for 'big' presets to 36pt
+    and then finally, creates a .alarming tag? That one
+    just makes text red, I guess.
+*/
