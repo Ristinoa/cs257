@@ -50,6 +50,13 @@ Use cases // User Stories:
     to specify a 'release year range' by typing in a start year or end year, or both. The prompt would then return
     albums from the specified range of dates.
 
+
+    STORY: Sam loves listening to all kinds of new music, so he would like to find a list of randomly sorted albums to listen to.
+
+    IMPLEMENTATION: We could create a interactive slideshow for each of the 5000 albums sorted randomly. This slideshow implementation
+    would respond to cursor input from left and right arrows. General information such as genre, release date, and a description of the
+    album would be shown.
+
  
     STORY: A music historian wants to determine what release dates are most prevalent in the dataset to determine whether
     older (relative to the dataset or  historian) albums have higher ratings on average.
