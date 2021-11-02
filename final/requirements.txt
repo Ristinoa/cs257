@@ -57,4 +57,5 @@ Use cases // User Stories:
     IMPLEMENTATION: This one could be tricky to implement, but we could try implementing a 'timeline' graphic that displays
     a graph data representation of where concentrations of entries are located, chronologically. Narrowing down the search
     could remove entries from the graph and different genres could be displayed in different colors; hovering over a data point
-    displays relative details: album name, artist/band, release year, ranking... etc.   
+    displays relative details: album name, artist/band, release year, ranking... etc. THIS IS A HYPOTHETICAL IDEA, we don't have 
+    the knowledge to accomplish this, but it would be an interesting and ambitious design.   
