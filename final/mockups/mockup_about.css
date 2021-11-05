@@ -41,8 +41,8 @@ ul.horizontal-navbar li a:hover {
 #text_box {
     border: 1px solid black;
     width: 900px;
-    height: 400px;
-    margin: 10px;
+    height: 200px;
+    margin: 25px;
     float: center;
 }
 
