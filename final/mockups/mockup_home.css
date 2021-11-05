@@ -35,3 +35,22 @@ ul.horizontal-navbar li a:hover {
     text-align: center;
     color: #FFFFFF;
 }
+
+#albumcycle {
+    width: 100%;
+    margin: 0px;
+    padding: 8px;
+    background: #FFFFFF;
+    text-align: center;
+    color: #44db00;
+}
+
+#plotgraph {
+    width: 100%;
+    margin: 0px;
+    padding: 8px;
+    background: #FFFFFF;
+    text-align: center;
+    color: #44db00;
+}
+
