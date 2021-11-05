@@ -1,0 +1,53 @@
+/* Authors: A.J. Ristino & Julian Bowers */
+
+#header {
+    width: 100%;
+    margin: 0px;
+    padding: 8px;
+    background: #CB5EFA;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+#navbar {
+    width: 200px;
+    float: center;
+    margin: 0px;
+    padding: 8px;
+    background: #bbbbbb;
+}
+
+.header_button {
+    width: 150px;
+    height: 50px;
+    line-height: 5px;
+    margin: 8px;
+    padding: 4px;
+    background: #5bddfd;
+    float: right;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 13px;
+    color: #FFFFFF;
+}
+
+.navbar_button {
+    width: 96.5%;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 12px;
+    height: 50px;
+    margin-bottom: 10px;
+    padding: 4px;
+    background: #682E82;
+    color: #FFFFFF;
+}
+
+#text_box {
+    border: 1px solid black;
+    width: 900px;
+    height: 400px;
+    margin: 10px;
+    float: center;
+}
+

@@ -5,7 +5,11 @@
     <link rel="stylesheet" href="sample3.css" type="text/css" />
     <title>Example 2: CSS</title>
 </head>
-
+<style>
+p.ex1 {
+    margin-bottom: 25px;
+}
+</style>
 <body>
     <h1>Cascading style sheets</h1>
     <p>Your job this time is to learn some CSS basics for adjusting colors, sizes,
@@ -33,7 +37,7 @@
 
     <p class="important">Can you have two HTML elements with the same class?</p>
 
-    <h2>Colors</h2>
+    <h2 class="resize_me">Colors</h2>
     <p class="special_color">Try changing the background and text color for this paragraph to various values.
     Note that there are some built-in color names (like "red", "green", "purple", etc.), but you can also
     specify colors using 2 hexadecimal digits for the red, green, and blue components of the color you want.
@@ -42,8 +46,8 @@
     muted and darker purple with #x990099). Search for "css color chart" or something like that to see some
     handy images.</p>
     
-    <h2>Styling headings</h2>
-    <p>Can you change the styles of an h2 tag the same way we changed it for paragraphs?
+    <h2 class="resize_me">Styling headings</h2>
+    <p class="bottomMargin">Can you change the styles of an h2 tag the same way we changed it for paragraphs?
     Experiment with that. For example, try making this section's h2 tag red and 50% bigger
     than a default h2 tag.</p>
 
@@ -58,7 +62,7 @@
     </table>
 
     <p>Here's another table</p>
-    <table>
+    <table border=1 frame=void rules=rows>
     <tr><th></th><th>Antlers?</th><th>Wings?</th><th>Noisy?</th></tr>
     <tr><td>Seagull</td><td>No</td><td>Yes</td><td>Yes</td></tr>
     <tr><td>Elk</td><td>Yes</td><td>No</td><td>Sometimes</td></tr>
@@ -80,7 +84,7 @@
     <p>You can apply a style to <span class="important">just some inline text</span> using the <em>span</em> tag.</p>
 
     <h2>Page margins</h2>
-    <p>See how this page jams right up to the bottom of the browser with no margin (at least it does
+    <p class ="ex1">See how this page jams right up to the bottom of the browser with no margin (at least it does
     for me)? How could you add a little space at the bottom of the page to prevent this?</p>
 </body>
 </html>

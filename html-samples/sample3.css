@@ -5,6 +5,7 @@
 
 html {
     height: 100%;
+    margin-bottom: 25px;
 }
 
 body {
@@ -24,8 +25,12 @@ p {
     background-color: yellow;
 }
 
+.bottomMargin {
+    margin-bottom: 25px;
+}
+
 .resize_me {
-    font-size: 8pt;
+    font-size: 30pt;
 }
 
 .indented {
@@ -34,7 +39,7 @@ p {
 
 .special_color {
     color: yellow;
-    background-color: #AA00AA;
+    background-color: #xFF00FF;
 }
 
 table, td, th {
