@@ -1,21 +1,37 @@
 ul.navbar_button {
-    width: 96.5%;
-    text-align: center;
+    width: 100%;
+    text-align:left;
     vertical-align: middle;
     line-height: 12px;
     height: 50px;
     margin-bottom: 10px;
     padding: 4px;
     background: #682E82;
+    color: #682E82;
+}
+
+ul.horizontal-navbar li {
+    float: left;
+}
+
+ul.horizontal-navbar li a {
+    display: block;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.horizontal-navbar li a:hover {
+    background-color: #555;
+    color: #D446E5;
+}
+
+#header {
+    width: 100%;
+    margin: 0px;
+    padding: 8px;
+    background: #CB5EFA;
+    text-align: center;
     color: #FFFFFF;
 }
-
-/* Horizontal navigation */
-ul.horizontal-navbar {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #f1f1f1;
-}
-
