@@ -14,8 +14,32 @@ app = flask.Flask(__name__, static_folder='static', template_folder='templates')
 app.register_blueprint(api.api, url_prefix='/api')
 
 @app.route('/')
-def home():
+def index():
     return flask.render_template('index.html')
+
+'''
+Below is the old index file containing all of the .html page links. A tad redundant.
+'''
+
+@app.route('/index2')
+def other_index():
+    return flask.render_template('index2.html')
+
+@app.route('/mockup_home')
+def home():
+    return flask.render_template('mockup_home.html')
+
+@app.route('/index2')
+def index2():
+    return flask.render_template('index2.html')
+
+@app.route('/mockup_advsearch')
+def advsearch():
+    return flask.render_template('mockup_advsearch.html')
+
+@app.route('/mockup_about.html')
+def about():
+    return flask.render_template('mockup_about.html')
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('Scaffolding for our albums app, including API & DB')

@@ -4,6 +4,7 @@
 
 '''A Flask blueprint to contain routes that serve API endpoints'''
 
+import random
 import flask
 import json
 import psycopg2
@@ -11,59 +12,33 @@ from config import database, user, password
 
 api = flask.Blueprint('api', __name__)
 
-def setup_db_connection():
+def setup_db():
     try:
-       db = psycopg2.connect(dtabase=database, user=username, password=password)
-       cursor = target.cursor()
-    except Exception as e:
-       print(e)
-       exit()
-    return db, cursor
-
-def main():
-    args = parse_args()
-
-
-@api.route('/artists/')
-def get_authors():
-    query = '''SELECT id, name FROM artists ORDER BY id'''
-    try:
-        db.cursor.execute(query)
-    except Exception as e:
-        print(e) 
-        exit()   
-    artists = []
-    for artist in db.cursor:
-        artist_dict = {}
-        artist_dict['id'] = artist[0]
-        artist_dict['name'] = artist[1]
-        artists.append(artist_dict)
-    cursor.close()
-    connection.close()
-    return json.dumps(artists)
-
-@api.route('/albums/artist/<artist_id>')
-def get_albums_for_artist(artist_id):
-    query = '''SELECT albums.id, artists.name, albums.name
-               FROM connector, albums, artists
-               WHERE artists.id = %s
-               AND connector.artist_id = artists.id
-               AND connector.album_id = albums.id
-               ORDER BY artists.name;'''
-    try:
-        db.cursor.execute(query, (noc))
+        db = psycopg2.connect(
+            database=database, user=user, password=password)
+        cursor = connection.cursor()
     except Exception as e:
         print(e)
         exit()
-    albums = []
-    for album in db.cursor:
-        album_dict = {}
-        album_dict['id'] = album[0]
-        album_dict['artist'] = album[1]
-        album_dict['album'] = album[2] 
-        albums.append(album_dict)
+    return db, cursor
+
+@api.route('/album/')
+def get_random_album():
+    rand_int = random.randint(0, 100)
+    query = '''SELECT artists.name, albums.name, genres, descs,
+               avrating, numratings, numreviews
+               FROM connector, albums, artists
+               WHERE albums.id = %s
+               AND connector.album_id = albums.id
+               AND connector.artist_id = artists.id;
+               '''
+    connection, cursor = setup_db()
+    cursor.execute(query, (str(rand_int),))
+    album = {}
+    for row in cursor:
+        album = {'artist': row[0], 'name': row[1], 'genres':row[3],
+                 'descs': row[4], 'avrating': row[5], 'numratings': row[6],
+                 'numreviews': row[7]}
     cursor.close()
     connection.close()
-    return json.dumps(albums)
-
-    
+    return json.dumps(album)    

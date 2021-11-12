@@ -1,3 +1,49 @@
+#header {
+    width: 100%;
+    margin: 0px;
+    padding: 8px;
+    background: #CB5EFA;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+ul.navbar_button {
+    width: 100%;
+    text-align:left;
+    vertical-align: middle;
+    line-height: 12px;
+    height: 50px;
+    margin-bottom: 10px;
+    padding: 4px;
+    background: #682E82;
+    color: #682E82;
+}
+
+ul.horizontal-navbar li {
+    float: left;
+}
+
+ul.horizontal-navbar li a {
+    display: block;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.horizontal-navbar li a:hover {
+    background-color: #555;
+    color: #D446E5;
+}
+
+#text_box {
+    border: 1px solid black;
+    width: 900px;
+    height: 200px;
+    margin: 25px;
+    float: center;
+}
+
 table {
     border-collapse: collapse;
 }
@@ -18,3 +64,6 @@ a:hover {
   cursor: pointer;
 }
 
+.angry {
+ color: 'red';
+}

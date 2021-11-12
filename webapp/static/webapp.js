@@ -22,63 +22,37 @@ function initialize() {
         element.onchange = onArtistsSelectionChanged;
     }
 }
- let baseURL = window.location.protocol
-                    + '//' + window.location.hostname
-                    + ':' + window.location.port
-                    + '/api';
+
+function getAPIBaseURL() {
+    let baseURL = window.location.protocol
+        + '//' + window.location.hostname
+        + ':' + window.location.port
+        + '/api';
     return baseURL;
 }
 
-function loadArtistSelector() {
-    let url = getAPIBaseURL() + '/artists/';
-    fetch(url, {method: 'get'})
-    .then((response) => response.json())
-    .then(function(artists) {
-        let selectorBody = '';
-        for (let k = 0; k < artists.length; k++) {
-            let artist = artists[k];
-            selectorBody += '<option value="' + artist['id'] + '">'
-                                + artist['name']
-                                + '</option>\n';
-        }
+function onRandomAlbumButton() {
+   let url = getAPIBaseURL() + '/album/';
 
-        let selector = document.getElementById('artist_selector');
-        if (selector) {
-            selector.innerHTML = selectorBody;
-        }
-    })
-  
-    .catch(function(error) {
-        console.log(error);
-    });
-}
-
-function onArtistsSelectionChanged() {
-    let artistID = this.value;
-    let url = getAPIBaseURL() + '/albums/artist/' + artistID;
-
-    fetch(url, {method: 'get'})
-
-    .then((response) => response.json())
-
-    .then(function(albums) {
-        let tableBody = '';
-        for (let k = 0; k < albums.length; k++) {
-            let album  = albums[k];
-            tableBody += '<tr>'
-                            + '<td>' + album['name'] + '</td>'
-                            + '</tr>\n';
-        }
-
-        // Put the table body we just built inside the table that's already on the page.
-        let albumsTable = document.getElementById('albums_table');
-        if (albumsTable) {
-            albumsTable.innerHTML = tableBody;
-        }
-    })
-
-    .catch(function(error) {
-        console.log(error);
-    });
+   fetch(url, { method: 'get' })
+       .then((response) => response.json())
+       .then(function (album) {
+           let str = '';
+           str += '<h2>' + album['artist']
+               + ' | ' + album['name']
+               + ' | ' + album['genres']
+               + ' | ' + album['descs']
+               + ' | ' + album['avrating']
+               + ' | ' + album['numratings']
+               + ' | ' + album['numreviews']
+               + '</h2>';
+           let newHTML = document.getElementById('random_album');
+           if (newHTML) {
+                newHTML.innerHTML = str;
+           }
+       })
+       .catch(function (error) {
+            console.log(error);
+        });
 }
 
