@@ -15,11 +15,9 @@
 window.onload = initialiaze;
 
 function initialize() {
-    loadArtistSelector();
-
     let element = document.getElementById('artist_selector');
     if (element) {
-        element.onchange = onArtistsSelectionChanged;
+        element.onclick = onArtistsSelectorChanged;
     }
 }
 
@@ -31,21 +29,21 @@ function getAPIBaseURL() {
     return baseURL;
 }
 
-function onRandomAlbumButton() {
+function onArtistSelectorChanged() {
    let url = getAPIBaseURL() + '/album/';
 
    fetch(url, { method: 'get' })
        .then((response) => response.json())
        .then(function (album) {
            let str = '';
-           str += '<h2>' + album['artist']
+           str += '<p>' + album['artist']
                + ' | ' + album['name']
                + ' | ' + album['genres']
                + ' | ' + album['descs']
                + ' | ' + album['avrating']
                + ' | ' + album['numratings']
                + ' | ' + album['numreviews']
-               + '</h2>';
+               + '</p>';
            let newHTML = document.getElementById('random_album');
            if (newHTML) {
                 newHTML.innerHTML = str;

@@ -24,7 +24,7 @@ def setup_db():
 
 @api.route('/album/')
 def get_random_album():
-    rand_int = random.randint(0, 100)
+    rand_int = random.randint(0, 5000)
     query = '''SELECT artists.name, albums.name, genres, descs,
                avrating, numratings, numreviews
                FROM connector, albums, artists

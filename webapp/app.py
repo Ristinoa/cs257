@@ -17,23 +17,12 @@ app.register_blueprint(api.api, url_prefix='/api')
 def index():
     return flask.render_template('index.html')
 
-'''
-Below is the old index file containing all of the .html page links. A tad redundant.
-'''
 
-@app.route('/index2')
-def other_index():
-    return flask.render_template('index2.html')
-
-@app.route('/mockup_home')
+@app.route('/mockup_home.html')
 def home():
     return flask.render_template('mockup_home.html')
 
-@app.route('/index2')
-def index2():
-    return flask.render_template('index2.html')
-
-@app.route('/mockup_advsearch')
+@app.route('/mockup_advsearch.html')
 def advsearch():
     return flask.render_template('mockup_advsearch.html')
 

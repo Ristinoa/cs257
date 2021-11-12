@@ -2,7 +2,7 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="../static/webapp.css" />
-    <link rel="text/javascript" src="../static/ted.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='webapp.js') }}" ></script>
     <link rel="shortcut icon" href="{{ url_for('static', filename='note.png') }}" />
     <title>TF5k: The beginning</title>
 </head>
@@ -16,14 +16,12 @@
     <ul class="horizontal-navbar navbar_button">
         <li><a href="./mockup_home.html">Home</a></li>
         <li><a href="./mockup_about.html">About</a></li>
-        <li><a href="./mockup_advsearch.html">Advanced Data Search</a></li>
+        <li><a href="./mockup_advsearch.html">Advanced Search</a></li>
     </ul>
-    <p class="angry"> Observe the serenity of the button before you, it's beautiful, is it not?
+    <p> Observe the serenity of the button before you, it's beautiful, is it not?
         Go ahead! Press it! You haven't got all day, you know.</p>
 
-    <p>Artists <select id="artist_selector"></select></p>
-
-    <p><table id="album_table"></table></p>
+    <p>Artists<select id="artist_selector"></select></p>
 </body>
 </html>
 
