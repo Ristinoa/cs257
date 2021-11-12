@@ -4,7 +4,7 @@
     For CS257 Software Design, Carleton College
  */
 function onButtonPress() {
-    alert('Hi from onButtonPress!');
+    alert('Hi!');
 }
 
 function initialize() {

@@ -10,3 +10,7 @@ body {
     padding: 10px;
 }
 
+button.angry {
+    color: red;
+    background-color: lightblue;
+}

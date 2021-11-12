@@ -1,13 +1,14 @@
-'''app.py'''
+#!/usr/bin/env python3
+'''
+    tinyapp.py
+    Jeff Ondich
+    Updated: 5 November 2021
 
-'''Modified by A.J. Ristino & Julian Bowers'''
-
-'''Adapted from code originally by Professor Jeff Ondich'''
-
-'''A Flask app containing routes that serve our HTML pages'''
-
-import flask
+    A tiny Flask web application, including API and Javascript,
+    to be used as a template for setting up your web app assignment.
+'''
 import argparse
+import flask
 import api
 
 app = flask.Flask(__name__, static_folder='static', template_folder='templates')
@@ -18,7 +19,7 @@ def home():
     return flask.render_template('index.html')
 
 if __name__ == '__main__':
-    parser = argparse.ArgumentParser('Scaffolding for our albums app, including API & DB')
+    parser = argparse.ArgumentParser('A tiny Flask application, including API')
     parser.add_argument('host', help='the host to run on')
     parser.add_argument('port', type=int, help='the port to listen on')
     arguments = parser.parse_args()
