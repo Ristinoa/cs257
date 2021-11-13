@@ -1,6 +1,6 @@
 /*
  * webapp.js
- * A.J. Ristino & Julian Bowers
+ * A.J. Ristino
  * 11 November, 2021
  */
 
@@ -36,7 +36,8 @@ function onArtistSelectorChanged() {
        .then((response) => response.json())
        .then(function (album) {
            let str = '';
-           str += '<p>' + album['artist']
+           str += '<p>' + album['ranking']
+               + ' | ' + album['artist']
                + ' | ' + album['name']
                + ' | ' + album['genres']
                + ' | ' + album['descs']
