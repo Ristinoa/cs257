@@ -53,3 +53,25 @@ artist_id integer,
 reldate_id integer);
 
 \copy connector FROM 'connector.csv' DELIMITER ',' CSV NULL AS 'NULL'
+
+
+ADVSEARCH QUERY:
+
+SELECT albums.id, artists.name, albums.name, genres, date, albums.descs, avrating, numratings, numreviews
+FROM albums, artists, reldates, connector
+WHERE albums.id >= 0
+AND albums.id <= 100
+AND UPPER(artists.name) LIKE '%' + %s + '%'
+AND UPPER(albums.name) LIKE '%' + %s + '%'
+AND UPPER(albums.genres) LIKE '%' + %s + '%'
+AND reldates.date LIKE '%' + %s + '%'
+AND UPPER(albums.descs) LIKE '%' + %s + '%'
+AND albums.avrating >= %s
+AND albums.avrating <= %s
+AND albums.numratings >= %s
+AND albums.numratings <= %s
+AND albums.numreviews >= %s
+AND albums.numreviews <= %s
+AND connector.reldate_id = reldates.id
+AND connector.album_id = albums.id
+AND connector.artist_id = artists.id;
