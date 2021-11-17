@@ -93,6 +93,7 @@ function advsearch() {
 
     fetch(url, {method: 'get'}
         .then((response) => response.json())
+
         .then(function(advsearch) {
              var tableBody='';
              for (var g = 0; g < advsearch.length; k++) {
@@ -115,10 +116,12 @@ function advsearch() {
              if (resultsTableElement) {
                  resultsTableElement.innerHTML = tableBody;
              }
-         })
+         });
+        
 
-         .catch(function(error) {
+          .catch(function(error) {
              console.log(error);
          });
+ 
 }
 
