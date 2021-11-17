@@ -19,7 +19,7 @@ function initialize() {
     if (element) {
         element.onclick = onRandomAlbumChanged;
     }
-    let element2 = document.getElementByID('advsearch');
+    let element2 = document.getElementById('advsearch');
     if (element2) {
         element.onclick = advsearchActive;
     }
@@ -89,5 +89,36 @@ function advsearch() {
                 + '&numratings_lower=' + numRatingsLower
                 + '&numratings_upper=' + numRatingsUpper
                 + '&numreviews_lower=' + numReviewslower
-                + + '&numreviews_lower=' + numReviewslower;
+                + '&numreviews_lower=' + numReviewslower;
+
+    fetch(url, {method: 'get'}
+        .then((response) => response.json())
+        .then(function(advsearch) {
+             var tableBody='';
+             for (var g = 0; g < advsearch.length; k++) {
+                 tableBody += '<tr>';
+
+                 tablebody += '<td>' + advsearch[k]['ranking'];
+                 tablebody += '<td>' + advsearch[k]['artist'];
+                 tablebody += '<td>' + advsearch[k]['name'];
+                 tablebody += '<td>' + advsearch[k]['genres'];
+                 tablebody += '<td>' + advsearch[k]['date'];
+                 tablebody += '<td>' + advsearch[k]['descs'];
+                 tablebody += '<td>' + advsearch[k]['avrating'];
+                 tablebody += '<td>' + advsearch[k]['numratings'];
+                 tablebody += '<td>' + advsearch[k]['numreviews'];
+
+                 tableBody += '</tr>';
+                 
+             }
+             var resultsTableElement = document.getElementByID('results_table');
+             if (resultsTableElement) {
+                 resultsTableElement.innerHTML = tableBody;
+             }
+         })
+
+         .catch(function(error) {
+             console.log(error);
+         });
+}
 

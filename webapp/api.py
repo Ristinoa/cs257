@@ -44,45 +44,37 @@ def get_random_album():
 
 @api.route('/advsearch')
 def get_advsearch():
-    album_name = flask.request.args.get('album_name', 'DEFAULT')
-    return json.dumps('HI' + album_name + 'BYE')
+    ranking_lower = flask.request.args.get('ranking_lower', 0)
+    ranking_upper = flask.request.args.get('ranking_upper', 5000)
+    artist_name = flask.request.args.get('artist_name', '')
+    album_name = flask.request.args.get('album_name', '')
+    genres = flask.request.args.get('genres', '')
+    release_year = flask.request.args.get('release_year', '')
+    descs = flask.request.args.get('descs', '')
+    avrating_lower = flask.request.args.get('avrating_lower', 0)
+    avrating_upper = flask.request.args.get('avrating_upper', 5)
+    numrating_lower = flask.request.args.get('numrating_lower', 0)
+    numrating_upper = flask.request.args.get('numrating_upper', 10000000)
+    numreviews_lower = flask.request.args.get('numreviews_lower', 0)
+    numreviews_upper = flask.request.args.get('numreviews_upper', 100000000)
     
-'''
-@api.route('/advsearch/<ranking_lower><ranking_upper><artist><albname><genres><relyear><descs><avrating_lower><avrating_upper><numratings_lower><numratings_upper><numreviews_lower><numreviews_upper>')
-def get_advsearch(ranking_lower, ranking_upper, artist, albname, genres, relyear,
-                  descs, avrating_lower, avrating_upper, numratings_lower,numratings_upper, 
-                  numreviews_lower,numreviews_upper):
-
-    if not ranking_lower:
-        ranking_lower == 0
-    if ranking_upper:
-        ranking_upper == 100000
-    if avrating_lower:
-        avrating_lower == 0
-    if avrating_upper == NULL:
-        avrating_upper == 5 
-    if numratings_lower == NULL:
-        numratings_lower == 0
-    if numratings_upper == NULL:
-        numratings_upper == 1000000
-    
-    artist = artist.upper()
-    albname = albname.upper()
+    artist_name = artist_name.upper()
+    album_name = album_name.upper()
     genres = genres.upper()
-    relyear = relyear.upper()
+    release_year = release_year.upper()
     descs = descs.upper()
-     
-    query = '' 'SELECT albums.id, artists.name, albums.name,
+
+    query = '''SELECT albums.id, artists.name, albums.name,
                       genres, date, albums.descs, avrating,
                        numratings, numreviews
                FROM albums, artists, reldates, connector
                WHERE albums.id >= 0
                AND albums.id <= 100
-               AND UPPER(artists.name) LIKE '%' + %s + '%'
-               AND UPPER(albums.name) LIKE '%' + %s + '%'
-               AND UPPER(albums.genres) LIKE '%' + %s + '%'
-               AND reldates.date LIKE '%' + %s + '%'
-               AND UPPER(albums.descs) LIKE '%' + %s + '%'
+               AND UPPER(artists.name) LIKE CONCAT('%',%s,'%')
+               AND UPPER(albums.name) LIKE CONCAT('%',%s,'%')
+               AND UPPER(albums.genres) LIKE CONCAT('%',%s,'%')
+               AND reldates.date LIKE CONCAT('%',%s,'%')
+               AND UPPER(albums.descs) CONCAT('%',%s,'%')
                AND albums.avrating >= %s
                AND albums.avrating <= %s
                AND albums.numratings >= %s
@@ -91,20 +83,21 @@ def get_advsearch(ranking_lower, ranking_upper, artist, albname, genres, relyear
                AND albums.numreviews <= %s
                AND connector.reldate_id = reldates.id
                AND connector.album_id = albums.id
-               AND connector.artist_id = artists.id;'' '
+               AND connector.artist_id = artists.id;'''
 
     connection, cursor = setup_db()
-    cursor.execute(query, (ranking_lower, ranking_upper, artist, albname, genres,
-                          str(relyear), descs,
+    cursor.execute(query, (ranking_lower, ranking_upper, artist_name, album_name, genres,
+                          release_year, descs,
                           avrating_lower, avrating_upper, numratings_lower,
                           numratings_upper, numreviews_lower, numreviews_upper))
     
-    advsearch = {}
+    advsearch = []
     for row in cursor:
-         advsearch = {'ranking': row[0], 'artist': row[1], 'name': row[2], 'genres':row[3],
+         album ={}
+         album = {'ranking': row[0], 'artist': row[1], 'name': row[2], 'genres':row[3],
                  'date': row[4], 'descs': row[5], 'avrating': row[6], 'numratings': row[7],'numreviews':row[8]}
+         advsearch.add(album)
 
     cursor.close()
     connection.close()
     return json.dumps(advsearch)
-'''
