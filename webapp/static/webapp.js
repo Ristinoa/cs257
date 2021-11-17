@@ -21,7 +21,7 @@ function initialize() {
     }
     let element2 = document.getElementById('advsearch');
     if (element2) {
-        element.onclick = advsearchActive;
+        element2.onclick = advsearchActivate;
     }
 }
 
@@ -58,24 +58,24 @@ function onRandomAlbumChanged() {
             console.log(error);
         });
 }
-function advsearch() {
+function advsearchActivate() {
     /* 
     This was painful.
     */
 
-    let rankingLower = document.getElementbyID('ranking_lower').value;
-    let rankingUpper = document.getElementbyID('ranking_upper').value;
-    let artistName = document.getElementbyID('artist_name').value;
+    let rankingLower = document.getElementById('ranking_lower').value;
+    let rankingUpper = document.getElementById('ranking_upper').value;
+    let artistName = document.getElementById('artist_name').value;
     let albumName = document.getElementById('album_name').value;
-    let genres = document.getElementbyID('genres').value;
-    let releaseYear = document.getElementbyID('release_year').value;
-    let descs = document.getElementbyID('descs').value;
-    let avratingLower = document.getElementbyID('avrating_lower').value;
-    let avratingUpper = document.getElementbyID('avrating_upper').value;
-    let numRatingsLower = document.getElementbyID('numratings_lower').value;
-    let numRatingsUpper = document.getElementbyID('numratings_upper').value;
-    let numReviewsLower = document.getElementbyID('numreviews_lower').value;
-    let numReviewsUpper = document.getElementbyID('numreviews_upper').value;
+    let genres = document.getElementById('genres').value;
+    let releaseYear = document.getElementById('release_year').value;
+    let descs = document.getElementById('descs').value;
+    let avratingLower = document.getElementById('avrating_lower').value;
+    let avratingUpper = document.getElementById('avrating_upper').value;
+    let numRatingsLower = document.getElementById('numrating_lower').value;
+    let numRatingsUpper = document.getElementById('numrating_upper').value;
+    let numReviewsLower = document.getElementById('numreview_lower').value;
+    let numReviewsUpper = document.getElementById('numreview_upper').value;
     let url = getAPIBaseURL() + '/advsearch'
                 + '?ranking_lower=' + rankingLower
                 + '&ranking_upper=' + rankingLower
@@ -88,10 +88,11 @@ function advsearch() {
                 + '&avrating_upper=' + avratingUpper
                 + '&numratings_lower=' + numRatingsLower
                 + '&numratings_upper=' + numRatingsUpper
-                + '&numreviews_lower=' + numReviewslower
-                + '&numreviews_lower=' + numReviewslower;
+                + '&numreviews_lower=' + numReviewsLower
+                + '&numreviews_lower=' + numReviewsLower;
 
-    fetch(url, {method: 'get'}
+        fetch(url, {method: 'get'})
+
         .then((response) => response.json())
 
         .then(function(advsearch) {
@@ -116,9 +117,7 @@ function advsearch() {
              if (resultsTableElement) {
                  resultsTableElement.innerHTML = tableBody;
              }
-         });
-        
-
+         })
           .catch(function(error) {
              console.log(error);
          });

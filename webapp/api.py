@@ -68,8 +68,8 @@ def get_advsearch():
                       genres, date, albums.descs, avrating,
                        numratings, numreviews
                FROM albums, artists, reldates, connector
-               WHERE albums.id >= 0
-               AND albums.id <= 100
+               WHERE albums.id >= %s
+               AND albums.id <= %s
                AND UPPER(artists.name) LIKE CONCAT('%',%s,'%')
                AND UPPER(albums.name) LIKE CONCAT('%',%s,'%')
                AND UPPER(albums.genres) LIKE CONCAT('%',%s,'%')
@@ -86,10 +86,7 @@ def get_advsearch():
                AND connector.artist_id = artists.id;'''
 
     connection, cursor = setup_db()
-    cursor.execute(query, (ranking_lower, ranking_upper, artist_name, album_name, genres,
-                          release_year, descs,
-                          avrating_lower, avrating_upper, numratings_lower,
-                          numratings_upper, numreviews_lower, numreviews_upper))
+    cursor.execute(query, (ranking_lower, ranking_upper, artist_name, album_name, genres,release_year, descs, avrating_lower, avrating_upper, numrating_lower, numrating_upper, numreviews_lower, numreviews_upper))
     
     advsearch = []
     for row in cursor:
