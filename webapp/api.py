@@ -44,25 +44,41 @@ def get_random_album():
 
 @api.route('/advsearch')
 def get_advsearch():
-    ranking_lower = flask.request.args.get('ranking_lower', 0)
-    ranking_upper = flask.request.args.get('ranking_upper', 5000)
-    artist_name = flask.request.args.get('artist_name', '')
-    album_name = flask.request.args.get('album_name', '')
-    genres = flask.request.args.get('genres', '')
-    release_year = flask.request.args.get('release_year', '')
-    descs = flask.request.args.get('descs', '')
-    avrating_lower = flask.request.args.get('avrating_lower', 0)
-    avrating_upper = flask.request.args.get('avrating_upper', 5)
-    numrating_lower = flask.request.args.get('numrating_lower', 0)
-    numrating_upper = flask.request.args.get('numrating_upper', 10000000)
-    numreviews_lower = flask.request.args.get('numreviews_lower', 0)
-    numreviews_upper = flask.request.args.get('numreviews_upper', 100000000)
+    ranking_lower = flask.request.args.get('ranking_lower', default=0, type=int)
+    ranking_upper = flask.request.args.get('ranking_upper',default=5000, type=int)
+    artist_name = flask.request.args.get('artist_name', default='', type=str)
+    album_name = flask.request.args.get('album_name', default='', type=str)
+    genres = flask.request.args.get('genres', default='', type=str)
+    release_year = flask.request.args.get('release_year', default='', type=str)
+    descs = flask.request.args.get('descs', default='', type=str)
+    avrating_lower = flask.request.args.get('avrating_lower', default=0, type=int)
+    avrating_upper = flask.request.args.get('avrating_upper', default=5, type=int)
+    numrating_lower = flask.request.args.get('numrating_lower', default=0, type=int) 
+    numrating_upper = flask.request.args.get('numrating_upper', default=1000000, type=int)
+    numreview_lower = flask.request.args.get('numreview_lower', default=0, type=int)
+    numreview_upper = flask.request.args.get('numreview_upper', default=1000000, type=int)
     
     artist_name = artist_name.upper()
     album_name = album_name.upper()
     genres = genres.upper()
     release_year = release_year.upper()
     descs = descs.upper()
+    
+    print('hello!')
+    print(ranking_lower)
+    print(ranking_upper)
+    print(artist_name)
+    print(album_name)
+    print(genres)
+    print(release_year)
+    print(descs)
+    print(avrating_lower)
+    print(avrating_upper)
+    print(numrating_lower)
+    print(numrating_upper)
+    print(numreview_lower)
+    print(numreview_upper)
+
 
     query = '''SELECT albums.id, artists.name, albums.name,
                       genres, date, albums.descs, avrating,
@@ -70,11 +86,11 @@ def get_advsearch():
                FROM albums, artists, reldates, connector
                WHERE albums.id >= %s
                AND albums.id <= %s
-               AND UPPER(artists.name) LIKE CONCAT('%',%s,'%')
-               AND UPPER(albums.name) LIKE CONCAT('%',%s,'%')
-               AND UPPER(albums.genres) LIKE CONCAT('%',%s,'%')
-               AND reldates.date LIKE CONCAT('%',%s,'%')
-               AND UPPER(albums.descs) CONCAT('%',%s,'%')
+               AND UPPER(artists.name) LIKE CONCAT('%%',%s,'%%')
+               AND UPPER(albums.name) LIKE CONCAT('%%',%s,'%%')
+               AND UPPER(albums.genres) LIKE CONCAT('%%',%s,'%%')
+               AND reldates.date LIKE CONCAT('%%',%s,'%%')
+               AND UPPER(albums.descs) LIKE CONCAT('%%',%s,'%%')
                AND albums.avrating >= %s
                AND albums.avrating <= %s
                AND albums.numratings >= %s
@@ -86,8 +102,10 @@ def get_advsearch():
                AND connector.artist_id = artists.id;'''
 
     connection, cursor = setup_db()
-    cursor.execute(query, (ranking_lower, ranking_upper, artist_name, album_name, genres,release_year, descs, avrating_lower, avrating_upper, numrating_lower, numrating_upper, numreviews_lower, numreviews_upper))
-    
+    cursor.execute(query, (ranking_lower, ranking_upper, artist_name, album_name,
+                           genres,release_year, descs, avrating_lower, avrating_upper,
+                           numrating_lower, numrating_upper, numreview_lower, numreview_upper))
+    print(cursor.query)
     advsearch = []
     for row in cursor:
          album ={}

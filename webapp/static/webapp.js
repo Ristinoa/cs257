@@ -72,13 +72,13 @@ function advsearchActivate() {
     let descs = document.getElementById('descs').value;
     let avratingLower = document.getElementById('avrating_lower').value;
     let avratingUpper = document.getElementById('avrating_upper').value;
-    let numRatingsLower = document.getElementById('numrating_lower').value;
-    let numRatingsUpper = document.getElementById('numrating_upper').value;
-    let numReviewsLower = document.getElementById('numreview_lower').value;
-    let numReviewsUpper = document.getElementById('numreview_upper').value;
+    let numRatingLower = document.getElementById('numrating_lower').value;
+    let numRatingUpper = document.getElementById('numrating_upper').value;
+    let numReviewLower = document.getElementById('numreview_lower').value;
+    let numReviewUpper = document.getElementById('numreview_upper').value;
     let url = getAPIBaseURL() + '/advsearch'
                 + '?ranking_lower=' + rankingLower
-                + '&ranking_upper=' + rankingLower
+                + '&ranking_upper=' + rankingUpper
                 + '&artist_name=' + artistName
                 + '&album_name=' + albumName
                 + '&genres=' + genres
@@ -86,10 +86,10 @@ function advsearchActivate() {
                 + '&descs=' + descs
                 + '&avrating_lower=' + avratingLower
                 + '&avrating_upper=' + avratingUpper
-                + '&numratings_lower=' + numRatingsLower
-                + '&numratings_upper=' + numRatingsUpper
-                + '&numreviews_lower=' + numReviewsLower
-                + '&numreviews_lower=' + numReviewsLower;
+                + '&numrating_lower=' + numRatingLower
+                + '&numrating_upper=' + numRatingUpper
+                + '&numreview_lower=' + numReviewLower
+                + '&numreview_upper=' + numReviewUpper;
 
         fetch(url, {method: 'get'})
 
@@ -113,7 +113,7 @@ function advsearchActivate() {
                  tableBody += '</tr>';
                  
              }
-             var resultsTableElement = document.getElementByID('results_table');
+             var resultsTableElement = document.getElementById('results_table');
              if (resultsTableElement) {
                  resultsTableElement.innerHTML = tableBody;
              }
