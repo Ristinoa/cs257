@@ -34,6 +34,7 @@ def get_random_album():
                '''
     connection, cursor = setup_db()
     cursor.execute(query, (str(rand_int),))
+    print(cursor.execute(query, (str(rand_int),)))
     album = {}
     for row in cursor:
         album = {'ranking': row[0], 'artist': row[1], 'name': row[2], 'genres':row[3],
@@ -64,7 +65,8 @@ def get_advsearch():
     release_year = release_year.upper()
     descs = descs.upper()
     
-    print('hello!')
+
+    
     print(ranking_lower)
     print(ranking_upper)
     print(artist_name)
@@ -79,7 +81,11 @@ def get_advsearch():
     print(numreview_lower)
     print(numreview_upper)
 
+    query_parameters = (str(ranking_lower),str(ranking_upper), artist_name, album_name,  genres,
+                        str(release_year), descs, str(avrating_lower),str(avrating_upper),
+                        str(numrating_lower), str(numrating_upper),str(numreview_lower),str(numreview_upper))
 
+    print(query_parameters)
     query = '''SELECT albums.id, artists.name, albums.name,
                       genres, date, albums.descs, avrating,
                        numratings, numreviews
@@ -102,16 +108,19 @@ def get_advsearch():
                AND connector.artist_id = artists.id;'''
 
     connection, cursor = setup_db()
-    cursor.execute(query, (ranking_lower, ranking_upper, artist_name, album_name,
-                           genres,release_year, descs, avrating_lower, avrating_upper,
-                           numrating_lower, numrating_upper, numreview_lower, numreview_upper))
-    print(cursor.query)
-    advsearch = []
-    for row in cursor:
+    cursor.execute(query,(query_parameters),)
+    
+    advsearch = {}
+    i = 0
+    for row in cursor:   
          album ={}
          album = {'ranking': row[0], 'artist': row[1], 'name': row[2], 'genres':row[3],
                  'date': row[4], 'descs': row[5], 'avrating': row[6], 'numratings': row[7],'numreviews':row[8]}
-         advsearch.add(album)
+         
+         advsearch[i] = album
+         i += 1
+    
+    print(advsearch)
 
     cursor.close()
     connection.close()

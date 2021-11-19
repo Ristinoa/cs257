@@ -15,12 +15,8 @@ app.register_blueprint(api.api, url_prefix='/api')
 
 @app.route('/')
 def index():
-    return flask.render_template('index.html')
-
-
-@app.route('/mockup_home.html')
-def home():
     return flask.render_template('mockup_home.html')
+
 
 @app.route('/mockup_advsearch.html')
 def advsearch():

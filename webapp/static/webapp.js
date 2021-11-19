@@ -1,17 +1,9 @@
 /*
  * webapp.js
- * A.J. Ristino
+ * Author: A.J. Ristino
  * 11 November, 2021
  */
 
-/* NOTE: This is a very rough draft, mostly
- * based on the code by Professor Ondich.
- * For this reason, and for the reason that 
- * I'm not 100% sure on the syntax of how 
- * all of this works, there was some
- * guess and checking with prof. O's 
- * sample code.
- */
 window.onload = initialize;
 
 function initialize() {
@@ -59,10 +51,6 @@ function onRandomAlbumChanged() {
         });
 }
 function advsearchActivate() {
-    /* 
-    This was painful.
-    */
-
     let rankingLower = document.getElementById('ranking_lower').value;
     let rankingUpper = document.getElementById('ranking_upper').value;
     let artistName = document.getElementById('artist_name').value;
@@ -97,18 +85,18 @@ function advsearchActivate() {
 
         .then(function(advsearch) {
              var tableBody='';
-             for (var g = 0; g < advsearch.length; k++) {
+             for (var k = 0; k < advsearch.length; k++) {
                  tableBody += '<tr>';
 
-                 tablebody += '<td>' + advsearch[k]['ranking'];
-                 tablebody += '<td>' + advsearch[k]['artist'];
-                 tablebody += '<td>' + advsearch[k]['name'];
-                 tablebody += '<td>' + advsearch[k]['genres'];
-                 tablebody += '<td>' + advsearch[k]['date'];
-                 tablebody += '<td>' + advsearch[k]['descs'];
-                 tablebody += '<td>' + advsearch[k]['avrating'];
-                 tablebody += '<td>' + advsearch[k]['numratings'];
-                 tablebody += '<td>' + advsearch[k]['numreviews'];
+                 tableBody += '<td>' + advsearch[k][];
+                 tableBody += '<td>' + advsearch[k][album['artist']];
+                 tableBody += '<td>' + advsearch[k][album['name']];
+                 tableBody += '<td>' + advsearch[k][album['genres']];
+                 tableBody += '<td>' + advsearch[k][album['date']];
+                 tableBody += '<td>' + advsearch[k][album['descs']];
+                 tableBody += '<td>' + advsearch[k][album['avrating']];
+                 tableBody += '<td>' + advsearch[k][album['numratings']];
+                 tableBody += '<td>' + advsearch[k][album['numreviews']];
 
                  tableBody += '</tr>';
                  
