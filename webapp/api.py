@@ -22,9 +22,11 @@ def setup_db():
         exit()
     return db, cursor
 
+# Currently a bug with this endpoint where the rank value comes up as undefined
+
 @api.route('/album/')
 def get_random_album():
-    rand_int = random.randint(0, 5000)
+    rand_int = random.randint(0, 4999)
     query = '''SELECT albums.id, artists.name, albums.name, genres, descs,
                avrating, numratings, numreviews
                FROM connector, albums, artists
@@ -39,6 +41,7 @@ def get_random_album():
     for row in cursor:
         album = {'ranking': row[0], 'artist': row[1], 'name': row[2], 'genres':row[3],
                  'descs': row[4], 'avrating': row[5], 'numratings': row[6],'numreviews':row[7]}
+
     cursor.close()
     connection.close()
     return json.dumps(album)
@@ -65,22 +68,6 @@ def get_advsearch():
     release_year = release_year.upper()
     descs = descs.upper()
     
-
-    
-    print(ranking_lower)
-    print(ranking_upper)
-    print(artist_name)
-    print(album_name)
-    print(genres)
-    print(release_year)
-    print(descs)
-    print(avrating_lower)
-    print(avrating_upper)
-    print(numrating_lower)
-    print(numrating_upper)
-    print(numreview_lower)
-    print(numreview_upper)
-
     query_parameters = (str(ranking_lower),str(ranking_upper), artist_name, album_name,  genres,
                         str(release_year), descs, str(avrating_lower),str(avrating_upper),
                         str(numrating_lower), str(numrating_upper),str(numreview_lower),str(numreview_upper))
@@ -124,7 +111,6 @@ def get_advsearch():
         '''
         advsearch.append(album)
     
-    print(advsearch)
     cursor.close()
     connection.close()
     return json.dumps(advsearch)
