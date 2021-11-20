@@ -88,15 +88,7 @@ function advsearchActivate() {
              for (var k = 0; k < advsearch.length; k++) {
                  tableBody += '<tr>';
 
-                 tableBody += '<td>' + advsearch[k][];
-                 tableBody += '<td>' + advsearch[k][album['artist']];
-                 tableBody += '<td>' + advsearch[k][album['name']];
-                 tableBody += '<td>' + advsearch[k][album['genres']];
-                 tableBody += '<td>' + advsearch[k][album['date']];
-                 tableBody += '<td>' + advsearch[k][album['descs']];
-                 tableBody += '<td>' + advsearch[k][album['avrating']];
-                 tableBody += '<td>' + advsearch[k][album['numratings']];
-                 tableBody += '<td>' + advsearch[k][album['numreviews']];
+                 tableBody += '<td>' + advsearch[k] + '</td>';
 
                  tableBody += '</tr>';
                  
@@ -105,7 +97,8 @@ function advsearchActivate() {
              if (resultsTableElement) {
                  resultsTableElement.innerHTML = tableBody;
              }
-         })
+         }) 
+
           .catch(function(error) {
              console.log(error);
          });

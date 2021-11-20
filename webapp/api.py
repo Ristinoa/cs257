@@ -1,6 +1,6 @@
 'api.py'''
 
-'''Authors: A.J. Ristino & Julian Bowers'''
+'''Author: A.J. Ristino'''
 
 '''A Flask blueprint to contain routes that serve API endpoints'''
 
@@ -110,18 +110,21 @@ def get_advsearch():
     connection, cursor = setup_db()
     cursor.execute(query,(query_parameters),)
     
-    advsearch = {}
+    advsearch = []
     i = 0
-    for row in cursor:   
-         album ={}
-         album = {'ranking': row[0], 'artist': row[1], 'name': row[2], 'genres':row[3],
+    for row in cursor:
+    
+        album = 'Ranking:' + ' ' +  str(row[0]) +' ' +  '-:-' + ' '  +'Artist:' + ' ' +  str(row[1]) + ' ' +  '-:-' + ' ' + 'Album name:'+ ' ' +  str(row[2]) + ' ' +  '-:-' +  ' ' +  'Genres:' + ' ' +  str(row[3]) + ' ' +  '-:-' + ' ' +  'Release date:' + ' ' + str(row[4]) + ' ' + '-:-' + ' ' + 'Descriptors:' + ' ' +  str(row[5]) + ' ' + '-:-' + ' ' + 'Average Rating:' + ' ' + '-:-' + ' ' +  str(row[6]) +' ' +  '-:-' + ' ' + 'Number of Ratings:' + ' ' + str(row[7]) + ' ' +  '-:-' + ' ' +  'Number of Reviews:'+ ' '+  str(row[8])
+
+
+        '''     
+        album = {}
+        album = {'Ranking': row[0], 'artist': row[1], 'name': row[2], 'genres':row[3],
                  'date': row[4], 'descs': row[5], 'avrating': row[6], 'numratings': row[7],'numreviews':row[8]}
-         
-         advsearch[i] = album
-         i += 1
+        '''
+        advsearch.append(album)
     
     print(advsearch)
-
     cursor.close()
     connection.close()
     return json.dumps(advsearch)
