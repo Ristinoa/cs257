@@ -1,6 +1,5 @@
 #header {
     width: 100%;
-    margin: 0px;
     padding: 8px;
     background: #CB5EFA;
     text-align: center;
@@ -11,11 +10,14 @@
     color: #FFFFFF;
     }
 .random_button {
-    display: flex;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     justify-content: center;
     align-items: center;
     line-height: 12px;
     height: 50px;
+    margin-top: 10px;
     margin-bottom: 10px;
     padding: 4px;
     background: #682E82;
@@ -30,13 +32,24 @@
     justify-content: center;
     align-items: center;
 }
+
+.image_card {
+    display: block;
+    margin-left: auto; 
+    margin-right: auto;
+    display: flex;
+    width: 210px;
+    height: 260px;
+    background: #682E82;
+    padding: 20px;
+}
+
 .album_card {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    display: flex;
     width: 50%;
-    height: 400px;
+    height: 200px;
     padding: 20px;
     background: #682E82;
     color: #FFFFFF;
@@ -72,11 +85,14 @@ ul.horizontal-navbar li a:hover {
 }
 
 .text_box {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
     border: 1px solid black;
     width: 900px;
     height: 200px;
     margin: 25px;
-    float: center;
+    padding: 10px;
 }
 
 table {

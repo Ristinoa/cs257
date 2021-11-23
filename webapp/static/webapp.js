@@ -25,6 +25,8 @@ function getAPIBaseURL() {
     return baseURL;
 }
 
+/* Below function is for the gimmick on the homepage */
+
 function onRandomAlbumChanged() {
    let url = getAPIBaseURL() + '/album/';
 
@@ -50,7 +52,13 @@ function onRandomAlbumChanged() {
             console.log(error);
         });
 }
+
+/* this next one is the real showstopper */
+
 function advsearchActivate() {
+
+/* first, construct the url with proper variables */
+
     let rankingLower = document.getElementById('ranking_lower').value;
     let rankingUpper = document.getElementById('ranking_upper').value;
     let artistName = document.getElementById('artist_name').value;
@@ -79,9 +87,13 @@ function advsearchActivate() {
                 + '&numreview_lower=' + numReviewLower
                 + '&numreview_upper=' + numReviewUpper;
 
+/* then, use a get method to ping the URL */
+
         fetch(url, {method: 'get'})
 
         .then((response) => response.json())
+
+/* process the response from the URL */
 
         .then(function(advsearch) {
              var tableBody='';
@@ -93,6 +105,8 @@ function advsearchActivate() {
                  tableBody += '</tr>';
                  
              }
+/* display the results as a table on the advanced search page!*/
+
              var resultsTableElement = document.getElementById('results_table');
              if (resultsTableElement) {
                  resultsTableElement.innerHTML = tableBody;

@@ -1,6 +1,6 @@
 '''app.py'''
 
-'''Modified by A.J. Ristino & Julian Bowers'''
+'''Modified by A.J. Ristino'''
 
 '''Adapted from code originally by Professor Jeff Ondich'''
 
