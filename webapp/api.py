@@ -56,7 +56,7 @@ def help():
 
 
 ''' First endpoint:
-        Not overly complex, just grabs a random number and plugs it into the connector & artists table
+        Not overly complex, just grabs a random number and plugs it into the connector, albums & artists table
 '''
 
 @api.route('/album/')
